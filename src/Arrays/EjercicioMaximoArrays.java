@@ -26,7 +26,7 @@ public class EjercicioMaximoArrays {
 		}
 		return max;
 	}
-	
+		
 	public static void imprimir(int[] a) {
 		System.out.print("[");
 		for (int i=0;i<a.length;i++) {
@@ -47,4 +47,16 @@ public class EjercicioMaximoArrays {
 		}
 		return a;
 	}
+	
 }
+
+
+
+
+
+
+
+
+
+
+
