@@ -2,18 +2,17 @@ package Arrays;
 
 import java.util.Scanner;
 
-public class EjercicioPedirImprimirMaximo {
+public class EjercicioMaximoImprimirPedir {
 
 	public static void main(String[] args) {
-		int[] b= {2,5,9,1,4,4};
+		int[]b= {1,2,3,4,5};
 		imprimir(b);
-		System.out.print(maximo(b));
 		System.out.println();
-		int[] x=pedirArrays(4);
+		System.out.println("maximo: "+ maximo(b));
+		int[] x=pedirArrays(5);
 		imprimir(x);
-		
 	}
-	
+
 	public static void imprimir(int[]a) {
 		System.out.print("[");
 		for (int i=0;i<a.length;i++) {
@@ -25,31 +24,21 @@ public class EjercicioPedirImprimirMaximo {
 		System.out.println("]");
 	}
 	
-	public static int maximo(int[]a) {
+	public static int maximo(int[] a) {
 		int max=a[0];
 		for (int i=0;i<a.length;i++) {
 			if (max<a[i]) {
 				max=a[i];
 			}
 		}
-		return max;
-	}
-
-	public static int[] pedirArrays(int n) {
-		Scanner scan=new Scanner(System.in);
-		int[]a=new int[n];
-		for (int i=0;i<a.length;i++) {
-			System.out.println("Ingrese el indice "+ i);
-			a[i]=scan.nextInt();
-		}
-		return a;
+		return max;	
 	}
 	
-	public static int[] pedirArrays2(int n) {
+	public static int[] pedirArrays(int n) {
 		Scanner scan=new Scanner(System.in);
 		int[] a=new int[n];
 		for (int i=0;i<a.length;i++) {
-			System.put.println("Ingrese el indice "+ i);
+			System.out.println("Ingrese el numero en el indice "+ i);	
 			a[i]=scan.nextInt();
 		}
 		return a;

@@ -1,12 +1,16 @@
 package Arrays;
 
+import java.util.Scanner;
+
 public class EjercicioPromedio {
 
 	public static void main(String[] args) {
-		int[] a= {1,5,9,7,1};
-		imprimir(a);
-		System.out.println("promedio: " + promedio(a));
-		
+		int[]x= {1,8,3,9};
+		System.out.println(promedio(x));
+		int[]w=pedirArrays(4);
+		System.out.println();
+		System.out.println(promedio(w));
+
 	}
 	
 	public static double promedio(int[] a) {
@@ -14,16 +18,18 @@ public class EjercicioPromedio {
 		for (int i=0;i<a.length;i++) {
 			suma+=a[i];
 		}
-		double prom=suma/a.length;
-		return prom;
+		double promedio=suma/a.length;
+		return promedio;
 	}
 	
-	public static void imprimir(int[] a) {
-		System.out.print("[");
+	public static int[] pedirArrays(int n) {
+		Scanner scan=new Scanner(System.in);
+		int[] a=new int[n];
 		for (int i=0;i<a.length;i++) {
-			System.out.print(a[i]);
+			System.out.println("Ingrese el numero en el indice " + i);
+			a[i]=scan.nextInt();
 		}
-		System.out.println("]");
+		return a;
 	}
 
 }
