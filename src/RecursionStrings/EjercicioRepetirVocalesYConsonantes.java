@@ -1,0 +1,10 @@
+package RecursionStrings;
+
+public class EjercicioRepetirVocalesYConsonantes {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
