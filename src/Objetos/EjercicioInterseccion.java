@@ -9,7 +9,6 @@ public class EjercicioInterseccion {
 	}
 	
 	public static Rectangle interseccion(Rectangle a, Rectangle b) {
-        // 1. Verificamos si hay un "hueco de aire" entre ambos (no se tocan)
         if (a.x + a.width < b.x || a.x > b.x + b.width || 
             a.y + a.height < b.y || a.y > b.y + b.height) {
             return null;
