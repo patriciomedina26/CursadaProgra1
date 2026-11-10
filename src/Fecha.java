@@ -19,6 +19,15 @@ public class Fecha {
 		System.out.println(this.dia + "/" + this.mes + "/" + this.año);
 	}
 	
+	public Fecha(int undia, int unmes, int unaño) {
+		if (unmes<1 || unmes>12) {
+			throw new IllegalArgumentException("Error: La fecha ingresada viola el Invariante de representacion");
+		}
+		this.dia=undia;
+		this.mes=unmes;
+		this.año=unaño;
+	}
+	
 	public static int diaDelMes(int mes, int año) {
 		if (mes==1 || mes==3 || mes==5 || mes==7 || mes==8 || mes==10 || mes==12) {
 			return 31;
@@ -85,6 +94,60 @@ public class Fecha {
 		if (mes>=13) {
 			this.mes=1;
 			this.año++;
+		}
+	}
+	
+	public boolean antesQue(Fecha otraFecha) {
+		if (this.año<otraFecha.año) {
+			return true;
+		}
+		if (this.año==otraFecha.año) {
+			if (this.mes<otraFecha.mes) {
+				return true;
+			}
+		}
+		if (this.año==otraFecha.año) {
+			if (this.mes==otraFecha.mes) {
+				if (this.dia<otraFecha.dia) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	
+	public int diaDelAño() {
+		int diasTotales=0;
+		for (int i=1;i<this.mes;i++) {
+			diasTotales=diasTotales+diaDelMes(i,this.año);
+		}
+		diasTotales=diasTotales+this.dia;
+		return diasTotales;
+	}
+	
+	public int diasDeDiferenciaCon(Fecha otra) {
+		Fecha primera;
+		Fecha segunda;
+		if (this.antesQue(otra)) {
+			primera=this;
+			segunda=otra;
+		} else { 
+			primera=otra;
+			segunda=this;
+		}
+		int Diferencia=0;
+		while (primera.antesQue(segunda)) {
+			primera.avanzarDia();
+			Diferencia++;
+		}
+		return Diferencia;
+	}
+	
+	public void agregarDias(int a) {
+		int diasRestantes=a;
+		while (diasRestantes>0) {
+			this.avanzarDia();
+			diasRestantes--;
 		}
 	}
 }
